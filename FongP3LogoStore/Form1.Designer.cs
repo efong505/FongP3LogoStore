@@ -33,13 +33,13 @@
             this.numOfItemsLbl = new System.Windows.Forms.Label();
             this.numOfItemsTxtBx = new System.Windows.Forms.TextBox();
             this.radioGroupBox = new System.Windows.Forms.GroupBox();
-            this.usbRadioButton = new System.Windows.Forms.RadioButton();
-            this.mugRadioButton = new System.Windows.Forms.RadioButton();
             this.PenRadioButton = new System.Windows.Forms.RadioButton();
+            this.mugRadioButton = new System.Windows.Forms.RadioButton();
+            this.usbRadioButton = new System.Windows.Forms.RadioButton();
             this.textToLabelLbl = new System.Windows.Forms.Label();
             this.textToEngravetextBox = new System.Windows.Forms.TextBox();
             this.logoCheckBox = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.numOfColorsLbl = new System.Windows.Forms.Label();
             this.numOfColorsTxtBox = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
@@ -92,16 +92,16 @@
             this.radioGroupBox.TabStop = false;
             this.radioGroupBox.Text = "Item Type";
             // 
-            // usbRadioButton
+            // PenRadioButton
             // 
-            this.usbRadioButton.AutoSize = true;
-            this.usbRadioButton.Location = new System.Drawing.Point(17, 23);
-            this.usbRadioButton.Name = "usbRadioButton";
-            this.usbRadioButton.Size = new System.Drawing.Size(47, 17);
-            this.usbRadioButton.TabIndex = 0;
-            this.usbRadioButton.TabStop = true;
-            this.usbRadioButton.Text = "USB";
-            this.usbRadioButton.UseVisualStyleBackColor = true;
+            this.PenRadioButton.AutoSize = true;
+            this.PenRadioButton.Location = new System.Drawing.Point(17, 71);
+            this.PenRadioButton.Name = "PenRadioButton";
+            this.PenRadioButton.Size = new System.Drawing.Size(44, 17);
+            this.PenRadioButton.TabIndex = 2;
+            this.PenRadioButton.TabStop = true;
+            this.PenRadioButton.Text = "Pen\r\n";
+            this.PenRadioButton.UseVisualStyleBackColor = true;
             // 
             // mugRadioButton
             // 
@@ -114,16 +114,16 @@
             this.mugRadioButton.Text = "Mug";
             this.mugRadioButton.UseVisualStyleBackColor = true;
             // 
-            // PenRadioButton
+            // usbRadioButton
             // 
-            this.PenRadioButton.AutoSize = true;
-            this.PenRadioButton.Location = new System.Drawing.Point(17, 71);
-            this.PenRadioButton.Name = "PenRadioButton";
-            this.PenRadioButton.Size = new System.Drawing.Size(44, 17);
-            this.PenRadioButton.TabIndex = 2;
-            this.PenRadioButton.TabStop = true;
-            this.PenRadioButton.Text = "Pen\r\n";
-            this.PenRadioButton.UseVisualStyleBackColor = true;
+            this.usbRadioButton.AutoSize = true;
+            this.usbRadioButton.Location = new System.Drawing.Point(17, 23);
+            this.usbRadioButton.Name = "usbRadioButton";
+            this.usbRadioButton.Size = new System.Drawing.Size(47, 17);
+            this.usbRadioButton.TabIndex = 0;
+            this.usbRadioButton.TabStop = true;
+            this.usbRadioButton.Text = "USB";
+            this.usbRadioButton.UseVisualStyleBackColor = true;
             // 
             // textToLabelLbl
             // 
@@ -151,15 +151,17 @@
             this.logoCheckBox.TabIndex = 7;
             this.logoCheckBox.Text = "Logo?";
             this.logoCheckBox.UseVisualStyleBackColor = true;
+            this.logoCheckBox.CheckedChanged += new System.EventHandler(this.logoCheckBox_CheckedChanged);
             // 
-            // label1
+            // numOfColorsLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 348);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Number of Colors:";
+            this.numOfColorsLbl.AutoSize = true;
+            this.numOfColorsLbl.Location = new System.Drawing.Point(45, 348);
+            this.numOfColorsLbl.Name = "numOfColorsLbl";
+            this.numOfColorsLbl.Size = new System.Drawing.Size(91, 13);
+            this.numOfColorsLbl.TabIndex = 8;
+            this.numOfColorsLbl.Text = "Number of Colors:";
+            this.numOfColorsLbl.Visible = false;
             // 
             // numOfColorsTxtBox
             // 
@@ -167,6 +169,7 @@
             this.numOfColorsTxtBox.Name = "numOfColorsTxtBox";
             this.numOfColorsTxtBox.Size = new System.Drawing.Size(154, 20);
             this.numOfColorsTxtBox.TabIndex = 9;
+            this.numOfColorsTxtBox.Visible = false;
             // 
             // submitButton
             // 
@@ -205,7 +208,7 @@
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.numOfColorsTxtBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numOfColorsLbl);
             this.Controls.Add(this.logoCheckBox);
             this.Controls.Add(this.textToEngravetextBox);
             this.Controls.Add(this.textToLabelLbl);
@@ -236,7 +239,7 @@
         private System.Windows.Forms.Label textToLabelLbl;
         private System.Windows.Forms.TextBox textToEngravetextBox;
         private System.Windows.Forms.CheckBox logoCheckBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label numOfColorsLbl;
         private System.Windows.Forms.TextBox numOfColorsTxtBox;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button clearButton;

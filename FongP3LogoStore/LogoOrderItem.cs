@@ -15,8 +15,10 @@ namespace FongP3LogoStore
         // default constructor
         public LogoOrderItem(): this ( -1,"mug" ,0 ,0 ,false ){} 
 
-        public LogoOrderItem(string text, bool hasLogo): this(-1,"mug",0,0,false)
+        public LogoOrderItem(string text, bool hasLogo): this()
         {
+            HasLogo = hasLogo;
+            
             Text = text;
         }
 
@@ -31,6 +33,7 @@ namespace FongP3LogoStore
         }
         // backing fields
         private bool _hasLogo;
+        private bool _hasText;
         private string _itemType;
         private int _numColors;
         private int _numItems;
@@ -38,7 +41,7 @@ namespace FongP3LogoStore
 
         // variable
         private bool text = false;
-        private bool color = false;
+        //private bool color = false;
 
         // properties
         public bool HasLogo
@@ -46,6 +49,12 @@ namespace FongP3LogoStore
             get
             { return _hasLogo; }
             set{ _hasLogo = value; Calc(); }
+        } 
+        public bool HasText
+        {
+            get
+            { return _hasText; }
+            set{ _hasText = value; Calc(); }
         }
         public string ItemType
         {
@@ -103,55 +112,56 @@ namespace FongP3LogoStore
             }
 
             // check with hasLogo to see if we add more something with the colors
-            if (HasLogo == true)
+            if (HasLogo)
             {
                 Price += Color * NumColors;
-                color = true;
+                
             }
 
             // Add price for the text
-            if(!String.IsNullOrEmpty(Text) || !String.IsNullOrWhiteSpace(Text))
+            if(HasText)
             {
                 Price += TextAdded;
-                text = true;
+               
             }
-            // multiply base price and added items by number of items
+            
             Price *= NumItems;
         }
         public string GetOrderSummary()
         {
-            string summary = "";
+            string summary;
             // should be fairly long so that you report the items ordered
             // and the total cost.
             // All features selected
-            if ( text == true && HasLogo == true)
-            { 
-            summary = "Order num " + OrderNum + ": " + NumItems +
-                " " + ItemType + " with " + NumColors + " color logo with the following" +
-                " text: " + Text + " Price: " + Price;
-                
-            }
-            else if (text == true)
+
+            if (HasText && HasLogo)
             {
                 summary = "Order num " + OrderNum + ": " + NumItems +
-                " " + ItemType +
-                " text: " + Text + " Price: " + Price;
+                    " " + ItemType + " with " + NumColors + " color logo with the following" +
+                    " text: " + Text + " Price: " + Price;
+
             }
-            else if (HasLogo == true)
+
+            else if (HasLogo)
             {
                 summary = "Order num " + OrderNum + ": " + NumItems +
                 " " + ItemType + " with " + NumColors + " color logo with the following"
                 + " Price: " + Price;
             }
+            else if (HasText)
+            {
+                summary = "Order num " + OrderNum + ": " + NumItems +
+                " " + ItemType +
+                " text: " + Text + " Price: " + Price;
+            }
             else
             {
                 summary = "Order num " + OrderNum + ": " + NumItems +
-                " " + ItemType
-                + " Price: " + Price;
+                " " + ItemType +
+                 " Price: " + Price;
             }
 
             return summary;
-
         }
 
     }

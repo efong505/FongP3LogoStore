@@ -20,24 +20,55 @@ namespace FongP3LogoStore
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            bool hasLogo = false;
+            bool hasLogo;
             if (logoCheckBox.Checked) { hasLogo = true; }
             else { hasLogo = false; }
 
+            //string text;
+            //bool hasText;
+           
             LogoOrderItem order = new LogoOrderItem(textToEngravetextBox.Text, hasLogo);
 
             // find out item type selection selection
+
+            if (!String.IsNullOrWhiteSpace(textToEngravetextBox.Text)) { order.HasText = true;  }
+            else { order.HasText = false;  }
             string itemSelection;
             if (usbRadioButton.Checked) itemSelection = usbRadioButton.Text;
             else if (mugRadioButton.Checked) itemSelection = mugRadioButton.Text;
             else itemSelection = PenRadioButton.Text;
-
-            order.NumItems = Int32.Parse(numOfItemsTxtBx.Text);
+            
+            if (int.TryParse(numOfItemsTxtBx.Text, out int numOfItems))
+            {
+                order.NumItems = numOfItems;
+            }
+            else
+            {
+                orderSummary.Text = "Incorrect data type";
+            }
+            //order.NumItems = int.Parse(numOfItemsTxtBx.Text);
             order.ItemType = itemSelection;
-            order.NumColors = Int32.Parse(numOfColorsTxtBox.Text);
+            if (int.TryParse(numOfColorsTxtBox.Text, out int numOfColors))
+            {
+                order.NumColors = numOfColors;
+            }
+            else
+            {
+                orderSummary.Text = "Incorrect data type";
+            }
+           // order.NumColors = int.Parse(numOfColorsTxtBox.Text);
             order.HasLogo = hasLogo;
-            order.OrderNum = Int32.Parse(orderNumtxtBox.Text);
-            orderNum = Int32.Parse(orderNumtxtBox.Text);
+            if (int.TryParse(orderNumtxtBox.Text, out int orderNumber))
+            {
+                order.OrderNum = orderNumber;
+            }
+            else
+            {
+                orderSummary.Text = "Incorrect data type for order number. \r\nPlease try again.";
+            }
+            //order.OrderNum = Int32.Parse(orderNumtxtBox.Text);
+
+            //orderNum = Int32.Parse(orderNumtxtBox.Text);
             orderSummary.Text = order.GetOrderSummary();
           
         }
@@ -51,6 +82,20 @@ namespace FongP3LogoStore
             numOfColorsTxtBox.Text = "";
             orderSummary.Text = "";
 
+        }
+
+        private void logoCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(logoCheckBox.Checked)
+            {
+                numOfColorsLbl.Visible = true;
+                numOfColorsTxtBox.Visible = true;
+            }
+            else
+            {
+                numOfColorsLbl.Visible = false;
+                numOfColorsTxtBox.Visible = false;
+            }
         }
     }
 }
