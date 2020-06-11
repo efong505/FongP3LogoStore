@@ -21,7 +21,7 @@ namespace FongP3LogoStore
             
             Text = text;
         }
-
+            
         public LogoOrderItem(int itemID, string itemType,int numColors,int numItems,bool hasLogo)
         {
             ItemID = itemID;

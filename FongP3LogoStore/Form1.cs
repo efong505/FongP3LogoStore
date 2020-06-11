@@ -20,63 +20,79 @@ namespace FongP3LogoStore
 
         private void submitButton_Click(object sender, EventArgs e)
         {
+            // check if logo selected
             bool hasLogo;
             if (logoCheckBox.Checked) { hasLogo = true; }
             else { hasLogo = false; }
 
-            //string text;
-            //bool hasText;
-           
+            // Create and Instantiate LogoOrderItem Object
             LogoOrderItem order = new LogoOrderItem(textToEngravetextBox.Text, hasLogo);
 
+            // Set HasLogo bool
+            order.HasLogo = hasLogo;
+
+            // Check if text is in text to engrave text box
+            if (!String.IsNullOrWhiteSpace(textToEngravetextBox.Text)) { order.HasText = true; }
+            else { order.HasText = false; }
+
             // find out item type selection selection
-
-            bool success = Int32.TryParse(orderNumtxtBox.Text, out int orderNumber);
-            if (success)
-            {
-                order.OrderNum = orderNumber;
-            }
-            else
-            {
-                orderSummary.Text = "Incorrect data type for order number. \r\nPlease try again.";
-            }
-            //order.OrderNum = Int32.Parse(orderNumtxtBox.Text);
-
-            if (!String.IsNullOrWhiteSpace(textToEngravetextBox.Text)) { order.HasText = true;  }
-            else { order.HasText = false;  }
+            // Check which radio button is selected
             string itemSelection;
             if (usbRadioButton.Checked) itemSelection = usbRadioButton.Text;
             else if (mugRadioButton.Checked) itemSelection = mugRadioButton.Text;
             else itemSelection = PenRadioButton.Text;
-            
-            if (int.TryParse(numOfItemsTxtBx.Text, out int numOfItems))
-            {
-                order.NumItems = numOfItems;
-            }
-            else
-            {
-                orderSummary.Text = "Incorrect data type";
-            }
-            //order.NumItems = int.Parse(numOfItemsTxtBx.Text);
-            order.ItemType = itemSelection;
-            if (int.TryParse(numOfColorsTxtBox.Text, out int numOfColors))
-            {
-                order.NumColors = numOfColors;
-            }
-            else
-            {
-                orderSummary.Text = "Incorrect data type";
-            }
-           // order.NumColors = int.Parse(numOfColorsTxtBox.Text);
-            order.HasLogo = hasLogo;
-            
-            
+            // Set item selection into ItemType property
+            order.ItemType = itemSelection; 
 
-            //orderNum = Int32.Parse(orderNumtxtBox.Text);
+            // Check order number
+            string orderNum = orderNumtxtBox.Text;
+            bool success = Int32.TryParse(orderNum, out int orderNumber);
+            if (success)
+            {
+                
+                order.OrderNum = orderNumber;
+                
+            }
+            else
+            {
+                //MessageBox.Show(orderNum + " is not a valid number");
+                orderSummary.Text = "Incorrect data type for order number. \r\nPlease try again.";
+            }
+            
+            // Check number of items
+            string numOfItems = numOfItemsTxtBx.Text;
+            success = Int32.TryParse(numOfItems, out int numberOfItems);
+            if (success)
+            {
+                order.NumItems = numberOfItems;
+                
+            }
+            else
+            {
+                orderSummary.Text = "Incorrect data type";
+            }
+            // Display Order Summary to order summary text box
             orderSummary.Text = order.GetOrderSummary();
-          
+            // Check Number of Colors
+            string numOfColors = numOfColorsTxtBox.Text;
+            success = Int32.TryParse(numOfColors, out int numberOfColors);
+            if (success)
+            {
+                order.NumColors = numberOfColors;
+                
+            }
+            else
+            {
+                orderSummary.Text = "Incorrect data type";
+            }
+
+            // Display Order Summary to order summary text box
+            orderSummary.Text = order.GetOrderSummary();
+            //// Display Order Summary to order summary text box
+            //orderSummary.Text = order.GetOrderSummary();
         }
 
+        // clear all fields from form
         private void clearButton_Click(object sender, EventArgs e)
         {
             orderNumtxtBox.Text = "";
@@ -88,6 +104,7 @@ namespace FongP3LogoStore
 
         }
 
+        // Controls the hide and show of number of colors
         private void logoCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if(logoCheckBox.Checked)
