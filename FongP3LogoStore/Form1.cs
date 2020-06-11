@@ -31,6 +31,17 @@ namespace FongP3LogoStore
 
             // find out item type selection selection
 
+            bool success = Int32.TryParse(orderNumtxtBox.Text, out int orderNumber);
+            if (success)
+            {
+                order.OrderNum = orderNumber;
+            }
+            else
+            {
+                orderSummary.Text = "Incorrect data type for order number. \r\nPlease try again.";
+            }
+            //order.OrderNum = Int32.Parse(orderNumtxtBox.Text);
+
             if (!String.IsNullOrWhiteSpace(textToEngravetextBox.Text)) { order.HasText = true;  }
             else { order.HasText = false;  }
             string itemSelection;
@@ -58,15 +69,8 @@ namespace FongP3LogoStore
             }
            // order.NumColors = int.Parse(numOfColorsTxtBox.Text);
             order.HasLogo = hasLogo;
-            if (int.TryParse(orderNumtxtBox.Text, out int orderNumber))
-            {
-                order.OrderNum = orderNumber;
-            }
-            else
-            {
-                orderSummary.Text = "Incorrect data type for order number. \r\nPlease try again.";
-            }
-            //order.OrderNum = Int32.Parse(orderNumtxtBox.Text);
+            
+            
 
             //orderNum = Int32.Parse(orderNumtxtBox.Text);
             orderSummary.Text = order.GetOrderSummary();

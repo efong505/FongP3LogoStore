@@ -99,13 +99,13 @@
             this.PenRadioButton.Name = "PenRadioButton";
             this.PenRadioButton.Size = new System.Drawing.Size(44, 17);
             this.PenRadioButton.TabIndex = 2;
-            this.PenRadioButton.TabStop = true;
-            this.PenRadioButton.Text = "Pen\r\n";
+            this.PenRadioButton.Text = "Pen";
             this.PenRadioButton.UseVisualStyleBackColor = true;
             // 
             // mugRadioButton
             // 
             this.mugRadioButton.AutoSize = true;
+            this.mugRadioButton.Checked = true;
             this.mugRadioButton.Location = new System.Drawing.Point(17, 47);
             this.mugRadioButton.Name = "mugRadioButton";
             this.mugRadioButton.Size = new System.Drawing.Size(46, 17);
@@ -196,14 +196,14 @@
             this.orderSummary.Location = new System.Drawing.Point(12, 439);
             this.orderSummary.Multiline = true;
             this.orderSummary.Name = "orderSummary";
-            this.orderSummary.Size = new System.Drawing.Size(346, 72);
+            this.orderSummary.Size = new System.Drawing.Size(346, 96);
             this.orderSummary.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 523);
+            this.ClientSize = new System.Drawing.Size(370, 547);
             this.Controls.Add(this.orderSummary);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.submitButton);

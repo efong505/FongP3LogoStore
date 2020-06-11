@@ -136,29 +136,30 @@ namespace FongP3LogoStore
 
             if (HasText && HasLogo)
             {
-                summary = "Order num " + OrderNum + ": " + NumItems +
-                    " " + ItemType + " with " + NumColors + " color logo with the following" +
-                    " text: " + Text + " Price: " + Price;
+                summary = 
+                "Order num: " + OrderNum + "\r\nNumber of Items: " + NumItems +
+                "\r\nItem Type: " + ItemType + "\r\n  with " + NumColors + " Colors." +
+                "\r\nText: " + Text + "\r\nPrice: " + Price;
 
             }
 
             else if (HasLogo)
             {
-                summary = "Order num " + OrderNum + ": " + NumItems +
-                " " + ItemType + " with " + NumColors + " color logo with the following"
-                + " Price: " + Price;
+                summary = 
+                "Order num: " + OrderNum + "\r\nNumber of Items: " + NumItems +
+                "\r\nItem Type: " + ItemType + 
+                "\r\nNumber of Colors: " + NumColors + "\r\nPrice: " + Price;
             }
             else if (HasText)
             {
-                summary = "Order num " + OrderNum + ": " + NumItems +
-                " " + ItemType +
-                " text: " + Text + " Price: " + Price;
+                summary = "Order num: " + OrderNum + "\r\nNumber of Items: " + NumItems +
+                "\r\nItem Type: " + ItemType +
+                "\r\nText: " + Text + "\r\nPrice: " + Price;
             }
             else
             {
-                summary = "Order num " + OrderNum + ": " + NumItems +
-                " " + ItemType +
-                 " Price: " + Price;
+                summary = "Order num: " + OrderNum + "\r\nNumber of Items: " + NumItems +
+                "\r\nItem Type: " + ItemType + "\r\nPrice: " + Price;
             }
 
             return summary;
