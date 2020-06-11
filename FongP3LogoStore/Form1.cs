@@ -32,6 +32,7 @@ namespace FongP3LogoStore
             order.HasLogo = hasLogo;
 
             // Check if text is in text to engrave text box
+            // Set HasText
             if (!String.IsNullOrWhiteSpace(textToEngravetextBox.Text)) { order.HasText = true; }
             else { order.HasText = false; }
 
@@ -51,12 +52,15 @@ namespace FongP3LogoStore
             {
                 
                 order.OrderNum = orderNumber;
-                
+                // Display Order Summary to order summary text box
+                orderSummary.Text = order.GetOrderSummary();
+
             }
             else
             {
                 //MessageBox.Show(orderNum + " is not a valid number");
                 orderSummary.Text = "Incorrect data type for order number. \r\nPlease try again.";
+
             }
             
             // Check number of items
@@ -65,29 +69,33 @@ namespace FongP3LogoStore
             if (success)
             {
                 order.NumItems = numberOfItems;
-                
-            }
-            else
-            {
-                orderSummary.Text = "Incorrect data type";
-            }
-            // Display Order Summary to order summary text box
-            orderSummary.Text = order.GetOrderSummary();
-            // Check Number of Colors
-            string numOfColors = numOfColorsTxtBox.Text;
-            success = Int32.TryParse(numOfColors, out int numberOfColors);
-            if (success)
-            {
-                order.NumColors = numberOfColors;
-                
-            }
-            else
-            {
-                orderSummary.Text = "Incorrect data type";
-            }
+                // Display Order Summary to order summary text box
+                orderSummary.Text = order.GetOrderSummary();
 
-            // Display Order Summary to order summary text box
-            orderSummary.Text = order.GetOrderSummary();
+            }
+            else
+            {
+                orderSummary.Text = "Incorrect data type. Please enter correct data type";
+            }
+            
+            
+            if(order.HasLogo)
+            { 
+                // Check Number of Colors
+                string numOfColors = numOfColorsTxtBox.Text;
+                success = Int32.TryParse(numOfColors, out int numberOfColors);
+                if (success)
+                {
+                    order.NumColors = numberOfColors;
+                    // Display Order Summary to order summary text box
+                    orderSummary.Text = order.GetOrderSummary();
+                }
+                else
+                {
+                    orderSummary.Text = "Incorrect data type. Please enter the correct number colors";
+                }
+            }
+           
             //// Display Order Summary to order summary text box
             //orderSummary.Text = order.GetOrderSummary();
         }
