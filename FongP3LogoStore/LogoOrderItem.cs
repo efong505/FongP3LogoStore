@@ -127,6 +127,7 @@ namespace FongP3LogoStore
             
             Price *= NumItems;
         }
+        // String of Order Summary
         public string GetOrderSummary()
         {
             string summary;
@@ -134,6 +135,7 @@ namespace FongP3LogoStore
             // and the total cost.
             // All features selected
 
+            // returns if has text and logo
             if (HasText && HasLogo)
             {
                 summary = 
@@ -142,7 +144,7 @@ namespace FongP3LogoStore
                 "\r\nText: " + Text + "\r\nPrice: " + Price;
 
             }
-
+            // returns if has logo but no text
             else if (HasLogo)
             {
                 summary = 
@@ -150,12 +152,16 @@ namespace FongP3LogoStore
                 "\r\nItem Type: " + ItemType + 
                 "\r\nNumber of Colors: " + NumColors + "\r\nPrice: " + Price;
             }
+
+            // returns if has text but no logo
             else if (HasText)
             {
                 summary = "Order num: " + OrderNum + "\r\nNumber of Items: " + NumItems +
                 "\r\nItem Type: " + ItemType +
                 "\r\nText: " + Text + "\r\nPrice: " + Price;
             }
+
+            // returns if item is selected only - no text or logo
             else
             {
                 summary = "Order num: " + OrderNum + "\r\nNumber of Items: " + NumItems +
