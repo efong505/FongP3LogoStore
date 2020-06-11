@@ -40,7 +40,7 @@ namespace FongP3LogoStore
         private string _text;
 
         // variable
-        private bool text = false;
+        //private bool text = false;
         //private bool color = false;
 
         // properties
