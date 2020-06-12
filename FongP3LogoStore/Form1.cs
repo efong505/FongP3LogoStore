@@ -60,6 +60,14 @@ namespace FongP3LogoStore
             {
                 //MessageBox.Show(orderNum + " is not a valid number");
                 orderSummary.Text = "Incorrect data type for order number. \r\nPlease try again.";
+                //
+                // Dialog box with exclamation icon.
+               // Popup that displays error message
+                MessageBox.Show("Incorrect data type for order number. \r\nPlease try again.",
+                    "Important Note",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button1);
 
             }
             
@@ -76,6 +84,12 @@ namespace FongP3LogoStore
             else
             {
                 orderSummary.Text = "Incorrect data type. Please enter correct data type";
+                // Popup that displays error message
+                MessageBox.Show("Incorrect data type for number number of items. \r\nPlease try again.",
+                    "Important Note",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button1);
             }
             
             
@@ -93,6 +107,12 @@ namespace FongP3LogoStore
                 else
                 {
                     orderSummary.Text = "Incorrect data type. Please enter the correct number colors";
+                    // Popup that displays error message
+                    MessageBox.Show("Incorrect data type for number of colors. \r\nPlease try again.",
+                    "Important Note",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button1);
                 }
             }
            
