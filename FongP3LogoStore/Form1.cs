@@ -63,7 +63,7 @@ namespace FongP3LogoStore
                 //
                 // Dialog box with exclamation icon.
                // Popup that displays error message
-                MessageBox.Show("Incorrect data type for order number. \r\nPlease try again.",
+                MessageBox.Show("Incorrect data type for 'Order Number'. \r\nPlease try again.",
                     "Important Note",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation,
@@ -85,7 +85,7 @@ namespace FongP3LogoStore
             {
                 orderSummary.Text = "Incorrect data type. Please enter correct data type";
                 // Popup that displays error message
-                MessageBox.Show("Incorrect data type for number number of items. \r\nPlease try again.",
+                MessageBox.Show("Incorrect data type for number 'Number of Items'. \r\nPlease try again.",
                     "Important Note",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation,
@@ -108,7 +108,7 @@ namespace FongP3LogoStore
                 {
                     orderSummary.Text = "Incorrect data type. Please enter the correct number colors";
                     // Popup that displays error message
-                    MessageBox.Show("Incorrect data type for number of colors. \r\nPlease try again.",
+                    MessageBox.Show("Incorrect data type for 'Number of Colors'. \r\nPlease try again.",
                     "Important Note",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation,
