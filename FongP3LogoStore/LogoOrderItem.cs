@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//TODO:  Good job.  score 96/100
+
 namespace FongP3LogoStore
 {
     class LogoOrderItem
@@ -79,12 +81,14 @@ namespace FongP3LogoStore
             set{ _text = value; Calc(); }
         }
         //auto-properties
+     //TODO:  This one is readonly, make it a private set  -2 
         public decimal Price { get; set; }
         public int ItemID { get; set; }
         public int OrderNum { get; set; }
 
         // auto-property (readonly) for Price
 
+       //TODO:  I see this works, but better to declare them as constants
         public decimal Pen { get; } = 1;
         public decimal Mug { get; } = 3.50M;
         public decimal USB { get; } = 4;
@@ -114,6 +118,8 @@ namespace FongP3LogoStore
             // check with hasLogo to see if we add more something with the colors
             if (HasLogo)
             {
+
+         //TODO:  Forgot to add the 0.10 for Graphic Logo  -2
                 Price += Color * NumColors;
                 
             }
